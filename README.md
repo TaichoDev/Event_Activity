@@ -10,7 +10,7 @@ I have add docker-compose in my project to learn how to use docker
 
 Access Web site :
 
-url : localhost:8071/index.php
+url : localhost:8071
 
 Access Console Administration:
 
