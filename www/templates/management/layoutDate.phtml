@@ -1,0 +1,27 @@
+
+
+<article id="jour" class="<?= $class['classevent']?>">
+	<label>Selectionnez une date</label>
+	<input 
+		id="dateEvent"
+		type="date" 		
+		name="the_date"	
+		value="<?= (isset($ladate)) ? $ladate :  ''; ?>"
+		class="myFunction"
+	>  	     
+</article>
+ <article id="eventOfday" class="<?= $class['classevent']?>">
+	<?php 
+	if(isset($obj)){		
+		foreach ($obj as $key => $value): ?>		
+			<label  ></label>
+			<button  data-idevent="<?= $value['idEvent'] ?>" 	
+				class="showEvent"
+			>
+					<?= $value['nomEvent'] ?>
+			</button>
+		<?php endforeach; 
+	} else{?>
+		<p>Pas d'évènement a cette date </p>
+	<?php } ?>	
+</article> 

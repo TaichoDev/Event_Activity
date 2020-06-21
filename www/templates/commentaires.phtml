@@ -1,0 +1,35 @@
+<h3>Commentaire(s)</h3>
+<ul>
+	<?php 
+		if (!empty($resCommentaires)) {
+			# code...
+			foreach ($resCommentaires as $key => $value) {
+				?>
+					<li>
+						<p>
+							<label class="utilisateur"><?= $value['idUser'].' '.$value['nomUser'].' '.$value['prenomUser'] ?> 
+								<?php  if(isset($_SESSION['USER']['ADMIN']  )){ ?>
+									<a href="index.php?page=delcom&idEvent=<?= $resultat[0]['idEvent']  ?>&idcom=<?= $value['idCommentaire'] ?> ">
+										
+											<i class="fas fa-trash"></i>
+										
+									</a>
+
+								<?php } ?>
+							</label>
+							<label class='contenu'><?= $value['txtCommentaire'] ?></label>
+							<label class='datemsg'><?= $value['dateValidCommentaire'] ?><label>
+						</p>	
+					</li>
+				<?php 
+			
+			}
+			
+		}else{?>
+				<li>Pas encore de commentaire pour cette évènement, soyez le premier
+				
+				</li>
+		<?php }
+		
+	?>							
+</ul>

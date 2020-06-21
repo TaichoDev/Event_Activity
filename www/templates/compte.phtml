@@ -1,0 +1,49 @@
+
+
+
+	<section class="contenaire-evenements commun-contenaire" id="mes_informations">
+		
+			
+			<form id="infos">
+				<section class="information-compte" >
+						<input type="hidden" name="idUser" value="<?= $donnees['idUser'] ?>">
+						<article>				
+							<label>Nom</label><input type="text" name="nomUser" required pattern="^[A-Za-z '-]+$" maxlength="50" value="<?= $donnees['nomUser'] ?>">
+						</article>
+						<article>
+							<label>Prénom</label><input type="text" name="prenomUser" required pattern="^[A-Za-z '-]+$" maxlength="50" value="<?= $donnees['prenomUser'] ?>">
+						</article>
+						<article class="full" >
+							<label>Date de Naissance</label><input type="date" name="dttnUser" value="<?= $donnees['dateBirth'] ?>">
+						</article>
+						<article class="full">
+							<label>Adresse</label><input type="text" name="adresseUser" required pattern="^[A-Za-z '-]+$" maxlength="50" value="<?= $donnees['adresseUser'] ?>">
+						</article>
+						<article class="full">
+							<label>Complément adresse</label><input type="text" name="adresseBisUser" required pattern="^[A-Za-z '-]+$" maxlength="50" value="<?= $donnees['adressBisUser'] ?>">
+						</article>
+						<article>
+							<label>CP</label><input type="text" name="cpUser" required pattern="^[0-9]+$" maxlength="5" value="<?= $donnees['cpUser'] ?>">
+						</article>
+						<article>
+							<label>Ville</label><input type="text" name="villeUser" required pattern="^[A-Za-z '-]+$" maxlength="50" value="<?= $donnees['villeUser'] ?>">
+						</article>
+						<article class="left">
+							<label>Pays</label><input type="text" name="paysUser" required pattern="^[A-Za-z '-]+$" maxlength="50" value="<?= $donnees['paysUser'] ?>">
+						</article>
+						<article class="full">
+							<label>Email</label><input type="text" name="mailUser" required 
+							pattern="([A-Za-z0-9][._]?)+[A-Za-z0-9]@[A-Za-z0-9]+(\.?[A-Za-z0-9]){2}\.(com?|net|org|fr)+(\.[A-Za-z0-9]{2,4})?" maxlength="50" value="<?= $donnees['emailUser'] ?>">
+						</article>
+						<article>
+							<label>Changer Mot de passe</label><input type="text" name="mdpUser" required value="">
+						</article>
+						<article>
+							<label>Confirmer mot de passe</label><input type="text" name="confirMdpUser" required value="">
+						</article>
+						<p>	
+							<button id="modification" type="button">Modifier mes informations<i class="fas fa-sign-out-alt"></i></button>
+						</p>
+				</section>	
+			</form>
+	</section>

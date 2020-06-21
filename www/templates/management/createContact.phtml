@@ -1,0 +1,49 @@
+
+
+    <article class="contenaire_ml" id="id_section_contact">
+        <input type="hidden" name="idEvent" value="">
+        <div class="contact" id="section1_contact">
+            <div>
+                <h3 class="nameContact"><?= $titre ?></h3>
+                <label>Orgarnisation</label>
+                <input type="text" name="nameOrg"  placeholder="Nouveau Contact" value="<?= $orgContact ?>" />
+                <label>Civilité</label>
+                <div>
+                    <select id="civilite" name="idCivlie">
+                        <option value="1"  >
+                            Madame
+                        </option>
+                        <option value="2">
+                            Monsieur
+                        </option>
+                    </select>
+                </div>
+                <label>Nom</label>
+                <input type="hidden" name="idContact" value="<?= $idContact ?>" />
+                <input type="text" name="nomContact"  placeholder="Nom Contact" value="<?= $nomContact ?>" />
+                <label>Prenom</label>
+                <input type="text" name="prenomContact"  placeholder="Prénom Contact"  value="<?= $prenomContact ?>"/>
+                <label>Téléphone Mobile</label>
+                <input type="text" name="telMobContact"  placeholder="Mobile"  value="<?= $telMobContact ?>"/>
+                <label>Téléphone Fixe</label>
+                <input type="text" name="telFixContact"  placeholder="Fixe"  value="<?= $telFixeContact ?>"/>
+
+              
+                 <?php 
+                    if(!empty($idContact)){
+                        ?>
+                           
+                            <button  type="button"  name="" class="modifyContact" >Modifier contact</button>
+                        <?php
+                    }else{
+                        ?>
+
+                            <button  type="button"  name="sendContact" id="sendContact" class="addContact">Enregistrer contact</button>
+
+                        <?php
+                    }
+
+                ?>
+            </div>
+        </div>
+    </article>

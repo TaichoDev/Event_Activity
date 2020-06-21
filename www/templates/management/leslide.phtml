@@ -1,0 +1,22 @@
+
+<article>
+	<div id="contenaire-slider">
+       <form id='newSlider' enctype='multipart/form-data' >     
+    		
+            <section>
+                <h2><?= $nomslider  ?></h2>
+                <figure>
+                    <img id='imageEvent' src='<?= $urlPhoto ?>' alt='<?= $nomphoto ?>' data-idPhoto="<?= $idPhoto ?>">
+                </figure>
+                <input  name='image' onchange="readURL(this)" type='file'  multiple accept='.png, .jpg, .jpeg, .gif'/>
+            </section>
+           
+     
+            <input type="hidden" name="idSlider" value="<?= $idSlider ?>">
+            <input type="hidden" name="urlPhoto" value="<?= $urlPhoto ?>">
+            <input type="hidden" name="idPhoto" value="<?= $idPhoto ?>">
+            
+            <button type="button"  class="saveBaniere">Sauvegarder</button>
+        </form>
+    </div>
+</article>

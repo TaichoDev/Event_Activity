@@ -1,0 +1,17 @@
+
+    <?php    
+        if (isset($obj5)) {
+            foreach ($obj5  as $key => $value) {
+                $asChecker="";
+                foreach ($obj3  as $keys => $v2) {
+                    if ($value == $v2) {
+                        $asChecker =  "checked";
+                        break;
+                    }
+                }
+                ?>
+                <input type="checkbox"  name="contacts" value="<?= $value['idContact'] ?>" <?= $asChecker ?>       >
+                <?=  $value['orgContact'] ;                    
+            }
+        }
+    ?>

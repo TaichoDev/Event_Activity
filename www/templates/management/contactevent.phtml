@@ -1,0 +1,26 @@
+<div id="contactevent">
+    <article id="liste_des_contacts">
+        <?php 
+    	
+        	if (isset($obj3)) {
+                //liste de tout les contacts inscrit pour l'evenement
+                foreach ($obj3  as $key => $value) {
+                    ?>
+                    <span class="objContact" data-id="<?=  $value['idContact'] ; ?>" data-page="showcontact"  data-suppression="suppressioncontact" >
+                        <?=  $value['orgContact'] ; ?>  
+                        <?php  if(!isset($noActive)){ ?>
+
+                            <button  class="voir_contact">
+                                <i class="fas fa-eye "></i>
+                            </button> 
+                            <button  class="voir_contact">
+                                <i class="fas fa-times "></i>
+                            </button>                  
+                        <?php } ?>
+                    </span>
+                    <?php
+                }
+            }
+        ?>
+    </article>
+</div>

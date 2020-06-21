@@ -1,0 +1,55 @@
+
+<div class="contenaire">
+	<main>
+			<section id="container">
+				<h2>Connexion Admin</h2>
+				<article>
+					<form method="POST" action="index.php?page=logAdmin" name="">
+						<?php
+
+							if (isset($erreurs) && count($erreurs)<0)  {
+								# code...
+								echo '<p class="erreur">'.$erreurs.'</p>';
+
+								
+							}
+						?>
+						<section>
+							<label class="flexLabel" for="mail">Adresse mail
+								<?php
+									if(!empty($erreurs['adresseMail'])){ ?>
+									<span>
+										<i class="fas fa-info-circle"></i>
+										<span class="message"><?= $erreurs['adresseMail'] ?></span>
+									</span>
+								<?php } ?>
+
+
+
+							</label>
+							<input class="flexText" type="text" name="mail" placeholder="mail">
+						</section>
+						<section>
+							<label class="flexLabel" for="mdp">Mot de passe
+								<?php
+									if(!empty($erreurs['mdpCrypte'])){ ?>
+									<span>
+										<i class="fas fa-info-circle"></i>
+										<span class="message"><?= $erreurs['mdpCrypte'] ?></span>
+									</span>
+								<?php } ?>
+
+
+							</label>
+							<input class="flexText" type="password" name="mdp" placeholder="Mot de passe">
+						</section>
+						<input type="submit" name="loguer" value="Connexion" >
+					</form>
+				</article>
+			</section>
+
+			<p>
+				<a href="index.php" class="retour">retourner à l'accueil</a>
+			</p>
+	</main>
+</div>

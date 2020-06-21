@@ -1,0 +1,20 @@
+<!-- <section class="commentaire-evenement"> -->
+	<h3>Commentaire(s)</h3>
+	<ul>
+		<?php if(!empty($objCommentaire['commentairesOfEvent'])){ ?>
+			<label>Nom de l'évènement <?= $objCommentaire['commentairesOfEvent'][0]['nomEvent'] ?></label>
+			<?php foreach ($objCommentaire['commentairesOfEvent'] as $key => $value) { ?>
+				<li data-idCom="<?= $value['idCommentaire'] ?>">
+					<p>
+						<label class="utilisateur"><?= $value['idUser'].' '.$value['nomUser'].' '.$value['prenomUser'] ?></label>
+						<label class="contenu"><?= $value['txtCommentaire'] ?></label>
+						<label class="datemsg"><?= $value['dateValidCommentaire'] ?><label>
+						</label></label>
+					</p>
+				</li>
+			<?php } ?>
+		<?php }else{  ?>
+			<label>Pas encore de commentaire pour cet évèvement</label>
+		<?php  } ?>
+	</ul>						
+<!-- </section>					 -->

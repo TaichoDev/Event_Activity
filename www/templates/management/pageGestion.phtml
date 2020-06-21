@@ -1,0 +1,121 @@
+
+    <section id="dashboard">
+        <nav>
+            <div>
+                <a href="index.php" id="logo">
+                    <img src="www/img/ea.png" alt="EventActivity">
+                    <label>Event Activity
+                    </label>
+                </a>
+            </div>
+            <ul>
+                <li>
+                    
+                    <?= $_SESSION['USER']['ADMIN']?>
+                    <a href="index.php?page=deco">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php">Voir le site
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <section id="contenaire_admin">
+            <aside>
+                <label>Tableau de bord</label>
+                <ul>                  
+                    <li class="menu">
+                        <button>
+                            Les évènements
+                        </button>
+                        <ul class="sous_menu_1">
+                            <li>
+                                <button id="listeevenement">
+                                    Liste des évènements
+                                </button>
+                            </li>
+                            <li>
+                                <button id="creer_evenement">
+                                    Creer un évènement
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                     <li class="menu">
+                        <button>
+                            La banniere
+                        </button>
+                        <ul class="sous_menu_1">                          
+                            <li>                                
+                                <button id='gestion_banniere'>Gestion de la banniere</button>
+                            </li>
+                        </ul>
+                    </li>                  
+                    <li class="menu">
+                        <button>
+                            Liste des contacts
+                            <!-- <div class="infobulle" id="bullereservation">0</div> -->
+                        </button>
+                        <ul class="sous_menu_1">
+                             <li>                                
+                                <button id='liste_tout_contact'>Liste des contacts</button>
+                            </li>
+                            <li>                                
+                                <button id='ajout_contact'>Créer un contact</button>
+                            </li>
+                        </ul>
+                    </li>
+                     <li class="menu">
+                        
+                        <button id='mon_profil' data-id="<?= $_SESSION['USER']['ID']?>" data-page="selectedAdmin" >Mon Profil</button>
+                        
+                    </li>
+                </ul>
+            </aside>
+            <section id="content">
+                <div id="contenaire_liste" class="contenaire_affichage" >
+                    <div id="contenaire_reponse"> 
+                        <article id="jour"></article>
+                        <article id="eventOfday"></article>
+                    </div>
+                </div>
+                <div id="contenaire_affiche" class="contenaire_affichage" >
+                    <div id="affiche_article"></div>
+                </div>
+            </section>
+        </section>
+    </section>
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Supprimer ce contact ? <span id="contactModal" data-id="" data-page=""></span> </p>       
+        <p>
+            <button><i class="fas fa-times" id="abortSupr"></i></button>
+            <button><i class="fas fa-check suppressionContact" ></i></button>
+        </p>
+    </div>
+
+</div>
+
+
+<div id="myInformation" class="modal">
+
+  <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Information</p>
+
+        <p>
+            <label id="information"></label>
+            <button><i class="fas fa-check" id="abortSupr"></i></button>
+        </p>
+    </div>
+
+</div>

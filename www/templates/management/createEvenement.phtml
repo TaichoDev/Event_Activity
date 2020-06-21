@@ -1,0 +1,108 @@
+
+<article>
+    <form id='newEvent' enctype='multipart/form-data' >
+      
+        <input type="hidden" name="idEvent" value="<?= $idEvent ?>">
+        <input type="hidden" name="idPhoto" value="<?= $idPhoto ?>">
+        <div id="contenaire_details">
+            <article>
+                <figure>
+                    <?php $selected = ( $urlPhoto != "")? $urlPhoto : 'https://via.placeholder.com/640' ?>
+                    <img id='imageEvent' src='<?= $selected ?>' alt='<?= $nomphoto ?>'>
+                </figure>
+                <input  name='image' id="charger" class='charger' type='file' multiple accept='.png, .jpg, .jpeg, .gif'/>
+            </article>
+            <article id="infoEvent">
+                <label >Nom de l'évènement</label>
+                <input type="text" name="titreEvent" value="<?= $nomEvent ?>" />
+                <label id="selectCategorie">Selectionner une catégorie</label>
+                <select id="categorie" name="categorie">
+                    <?php
+                        if (isset($resCategorie)) {
+                            foreach ($resCategorie  as $key => $value) {
+
+                                ?><option value="<?= $value['idCategorie'] ?>" <?= $selected = ( $value['idCategorie'] == $idCategorie)? 'selected' : '' ?>>
+                                    <?= $value['nomCategorie'] ?>
+                                </option><?php
+                            }
+                        }
+                    ?>
+                </select>
+                <label id="selectSsCategorie">Selectionner une sous-catégorie</label>
+                <select id="sscategorie" name="sscategorie" >
+                    <?php
+
+
+                        if (isset($resSsCategorie)) {
+                            foreach ($resSsCategorie  as $key => $value) {
+                                ?><option value="<?= $value['idSSCateg'] ?>" <?= $selected = ( $idSSCateg == $value["idSSCateg"]) ? 'selected' : '' ?>>
+                                    <?= $value['nomSSCateg'] ?>
+                                </option><?php
+                            }
+                        }
+
+                    ?>
+                </select>
+                <!-- details evenement -->
+                <label >PAF</label>
+                <input type="number" required name="pafevent" min="0" value="<?= $pafEvent ?>" step="0.01">
+                <label >Date</label>
+                <input type="date" name="dateevent" required min="01/01/2020" value="<?= $dateEvent?>" >
+                <label >Heure</label>
+                <input type="time" name="timevent" required min="00:00" value="<?= $heureEvent ?>">
+                <label >Information sur la réservation</label>
+                <textarea name="inforeservation"><?= $infoReservation ?></textarea>
+
+                <label>Information sur l'évement</label>
+                <textarea name="contenu" ><?= $descriptionEvent ?></textarea>
+            </article>
+        </div>
+       
+
+        <?php 
+            $titre = 'Nouveau Contact';
+
+            include_once 'createContact.phtml'
+        ?>
+        <article class="contact" id="idAjoutContact">
+            <h3 class="listeContact">Liste Contact(s)</h3>
+            <p>
+               
+               <?php include 'listeContacts.phtml'; ?>
+                <div class="contenaire_action">
+                    
+                    <button type="button" class="selectContact" >Valider</button>
+                </div>
+            </p>
+        </article>
+        <article class="contact" id="contactOfEvenement">
+            <h3 >Contact de l'evenement</h3>
+            
+
+            <?php  
+                $noActive = true;
+                include 'contactevent.phtml';
+            ?>
+        </article>
+        
+        <div class="contenaire_action">
+       
+            <?php 
+
+                if(isset($valide)){
+                    ?>
+                        <button  type="button"  class="save_modify_event" >Modifier évènement</button>
+                        <button  type="button"  class="delete_event" >Supprimer évènement</button>
+                    <?php
+                }else{
+                    ?>
+
+                        <button  type="button"  name="sendEvent" class="create_event"  >Valider évènement</button>
+
+                    <?php
+                }
+
+            ?>
+        </div>
+    </form>
+</article>

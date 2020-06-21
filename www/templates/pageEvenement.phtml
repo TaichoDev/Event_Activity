@@ -1,0 +1,89 @@
+	<section class="contenaire-evenements commun-contenaire">
+		<section class="listes-evenements-1 ">
+			<section class="contenaire-unevenement">
+				<section class="information-evenement" >
+					<h3>
+						<?= $resultat[0]['nomEvent'] ?>
+					</h3>
+					<p>
+						<?= $resultat[0]['nomCategorie'] ?>
+					</p>
+					<p>
+						<?= $resultat[0]['nomSSCateg'] ?>
+					</p>
+					<p>
+						<?= $resultat[0]['dateEvent'] ?>
+					</p>
+					<p>
+						PAF : <?= $resultat[0]['pafEvent'] ?>
+					</p>
+					<p>
+						<?= $resultat[0]['infoReservation'] ?> 
+					</p>
+				</section>
+				<figure>
+					<img src="<?= PHOTO_SITE.$resultat[0]['urlPhoto'] ?>" alt="<?= $resultat[0]['nomPhoto'] ?>">
+				</figure>
+				<section class="description-evenement">
+					<h3>information</h3>
+					<p>
+						<?= $resultat[0]['descriptionEvent'] ?>
+					</p>
+				</section>
+				
+				<section class="organisation-evenement">
+					<h3>Organisateur(s)</h3>
+					<section>
+						<?php 
+
+							if(isset($resOrg)){
+								foreach ($resOrg as $key => $value) {
+									?>
+									<section  class="infoContact">
+										<div>
+											<h4 data-id='<?= $value['idContact'] ?>'>
+											<?= $value['orgContact'] ?></h4> 
+											
+										</div>
+									</section>
+									<?php	
+								}
+							}								
+						?>
+					</section>
+				</section>
+				
+				<section class="commentaire-evenement" >
+					<div id="lescommentaires">
+						
+							<input type="hidden"  id='idEvent' value="<?= $resultat[0]['idEvent']  ?>">
+						<?php include 'commentaires.phtml'; ?>
+					</div>
+					<p><?php 
+								if(!isset($_SESSION['USER']  ) || isset($_SESSION['USER']['ADMIN']  )){
+									?>
+										Connectez-vous pour ecrire un commentaire.
+									<?php
+								}else{?>
+									<label>Ajouter un commentaire</label>
+									<form id="addcom">
+										<input  type="text" name="moncommentaire">
+										<input  type="hidden"    name="idUser"  value="<?= $_SESSION['USER']['ID'] ?>">
+										<input  type="hidden" 	name="idEvent" value="<?=  $resultat[0]['idEvent']  ?>">
+										<button type="button"   name="sendCom" id="sendCom" >Valider</button>
+									</form>
+								<?php }
+							?>
+					</p>
+				</section>
+			</section>
+		
+		</section>
+		
+		<section class="contenaire-retour">
+			<button type="button" class="button">
+				<a href="<?= $_SESSION['retour'] ?>">Retour</a>
+			</button>
+		</section>
+		
+	</section>

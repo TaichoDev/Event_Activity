@@ -1,0 +1,35 @@
+
+version: '3'
+services:
+  web:
+    image: lavoweb/php-7.2    
+    ports:
+      - "8071:80"
+    volumes:
+      - ./:/var/www/html
+    links:
+      - mysql
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - container-volume:/var/lib/mysql
+      - ./data/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_USER=root
+      - MYSQL_DATABASE=eventactivity
+    ports: 
+      - 3306:3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+    ports: 
+      - 82:80
+volumes:
+  container-volume:

@@ -1,0 +1,134 @@
+
+	<section id="contenaire-slider">
+		<div class="slideshow-container">
+
+			<?php foreach ($Sliders as $key => $value): 
+
+				//Sil il y  a un lien on l'affiche 
+				if (!empty($value['idEvent'])) { 
+
+			?>
+				<a href="index.php?page=evenement&num='<?= $value['idEvent'] ?>'">
+			<?php
+				}
+			?>
+
+				    <figure class="mySlides fade">
+
+				        
+				        <img alt="<?= $value['nomPhoto'] ?>" src="<?= PHOTO_SITE.$value['urlPhoto'] ?>">
+				        <figcaption class="text">
+				               Caption Text
+				        </figcaption>
+				    </figure>
+			<?php
+				if (!empty($value['idEvent'])) {
+			?>
+				</a>
+			<?php } endforeach ?>
+
+
+			
+		    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+			<div class="container-dot">
+			     <span class="dot" onclick="currentSlide(1)"></span> 
+			     <span class="dot" onclick="currentSlide(2)"></span> 
+			     <span class="dot" onclick="currentSlide(3)"></span> 
+			</div>
+		</div>
+
+
+	</section>
+	
+	<script type="text/javascript" src="www/js/slider.js"></script>
+
+	<section class="contenaire-evenements commun-contenaire accueil">
+		<section class="listes-evenements-1 listes-evenements">
+			<h2>Evènement ajouté récemment</h2>
+
+
+			<?php
+		
+
+
+				foreach ($eventFutur as $key => $value) {
+			
+			?>
+				<a href="index.php?page=evenement&num=<?= $value['idEvent'] ?>">
+					<article>
+
+
+							<figure>
+								<img src="<?= PHOTO_SITE.$value['urlPhoto'] ?>" alt="<?= $value['nomPhoto'] ?>">
+							</figure>
+							<div class="information-evenement">
+								<p>
+									<?= $value['nomCategorie'] ?>
+								</p>
+								<p>
+									<?= $value['nomSSCateg'] ?>
+								</p>
+								<p>
+									<?= $value['nomEvent'] ?>
+								</p>
+								<p>
+									<input type="hidden" value="<?= $value['idEvent'] ?>" name="event_<?= $value['idEvent'] ?>">
+									 <i class="fas fa-plus-circle"></i>
+								</p>
+							</div>
+
+					</article>
+				</a>
+				<?php
+			
+				}
+			?>
+		</section>
+		<p class="toutvoir">
+			<a href="index.php?page=toutvoir&type=futur">Voir tout</a>
+		</p>
+	</section>
+	<section class="contenaire-evenements commun-contenaire accueil">
+		<section class="listes-evenements-2 listes-evenements">
+			<h2>Evènement déjà passer</h2>
+			<?php
+				
+				foreach ($eventPast as $key => $value) {
+			
+			?>
+				<a href="index.php?page=evenement&num=<?= $value['idEvent'] ?>">
+					<article>
+
+
+							<figure>
+								<img src="<?= PHOTO_SITE.$value['urlPhoto'] ?>" alt="<?= $value['nomPhoto'] ?>">
+							</figure>
+							<div class="information-evenement">
+								<p>
+									<?= $value['nomCategorie'] ?>
+								</p>
+								<p>
+									<?= $value['nomSSCateg'] ?>
+								</p>
+								<p>
+									<?= $value['nomEvent'] ?>
+								</p>
+								<p>
+									<input type="hidden" value="<?= $value['idEvent'] ?>" name="event_<?= $value['idEvent'] ?>">
+									 <i class="fas fa-plus-circle"></i>
+								</p>
+							</div>
+
+					</article>
+				</a>
+				<?php
+			
+				}
+			?>
+		</section>
+		<p class="toutvoir">
+			<a href="index.php?page=toutvoir&type=passer">Voir tout</a>
+		</p>
+	</section>

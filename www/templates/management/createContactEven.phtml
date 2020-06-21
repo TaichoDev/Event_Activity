@@ -1,0 +1,74 @@
+        <article class="contenaire_ml" id="id_section_contact" style="background:yellow">
+
+            <section class="contact" id="section1_contact">
+
+                    <h3 class="nameContact">Nouveau Contact</h3>
+                    <label>Orgarnisation</label>
+                    <input type="text" name="nameOrg"  placeholder="Nouveau Contact"/>
+                    <select id="civilite">
+                        <option value="1">
+                            Madame
+                        </option>
+                        <option value="2">
+                            Monsieur
+                        </option>
+                    </select>
+                    <label>Nom</label>
+                    <input type="text" name="nomContact"  placeholder="Nom Contact"/>
+                    <label>Prenom</label>
+                    <input type="text" name="prenomContact"  placeholder="Prénom Contact"/>
+                    <label>Téléphone Mobile</label>
+                    <input type="text" name="telMobContact"  placeholder="Mobile"/>
+                    <label>Téléphone Fixe</label>
+                    <input type="text" name="telFixContact"  placeholder="Fixe"/>
+                    <button type="button" name="sendContact" id="sendContact">Enregistrer</button>
+            </section>
+            <section class="contact" id="idAjoutContact">
+                <h3 class="listeContact">Liste Contact(s)</h3>
+                <p>
+                    <ul id="listeContact">
+                        <?php
+
+                        $asChecker="";
+                        //Liste de tout les contacts présents dans la base de données
+                        if (isset($obj5)) {
+                            foreach ($obj5  as $key => $value) {
+                                $asChecker="";
+                                foreach ($obj3  as $keys => $v2) {
+                                    if ($value == $v2) {
+                                        $asChecker =  "checked";
+                                        break;
+                                    }
+                                }
+                                ?>
+
+                                <input type="checkbox"  name="contacts" value="<?= $value['idContact'] ?>" <?= $asChecker ?>       >
+                                <?=  $value['orgContact'] ;
+
+                                    
+                            }
+                        }
+
+                        ?>
+                    </ul>
+                    <button type="button" name="selectContact" id="selectContact">Valider</button>
+                </p>
+            </section>
+            <section class="contact" id="contactOfEvenement">
+                <h3 >Contact de l'evenement</h3>
+                <p id="contactevent">
+
+                    <?php
+                        if (isset($obj3)) {
+                            //liste de tout les contacts inscrit pour l'evenement
+                            foreach ($obj3  as $key => $value) {
+                                ?>
+                                <span class="objContact" data-id="<?=  $value['idContact'] ; ?>">
+                                    <?=  $value['orgContact'] ; ?>
+                                </span><?php
+                            }
+                        }
+                    ?>
+                </p>
+            </section>
+        </article>

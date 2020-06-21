@@ -1,0 +1,36 @@
+<article id="liste_admin">
+<?php
+
+	if (isset($allAdmin)) {
+
+		foreach ($allAdmin as $key => $value) {
+		?>
+
+				<span class="nodeOfUser " data-id="<?= $value['idAdmin'] ?>" data-page="selectedAdmin" data-suppression="deleteAdmin" >
+					<?= $value['pseudo'] ?>
+					<button  class="voir_contact">
+						<i class="fas fa-eye "></i>
+					</button>
+					<?php 
+
+
+						if ( 
+							 ($_SESSION['USER']['TYPE'] == 1 && $value['idAdmin'] != 1) ||  
+							($_SESSION['USER']['TYPE'] == 2 && $value['idTypeAdmin'] !=1)
+
+						 ) { 
+					?>
+						
+						<button  class="supprimer_contact">
+							<i class="fas fa-times "></i>
+						</button>
+					<?php
+						}
+
+					?>
+				</span>
+
+				<?php
+		}
+	} ?>
+</article>

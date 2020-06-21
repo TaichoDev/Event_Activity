@@ -1,0 +1,15 @@
+
+<?php
+
+	if (isset($obj)) {
+
+		foreach ($obj as $key => $value) {
+		?>
+
+				<button class="nodeOfListComs <?= $nodeOfListComs ?>" data-date="<?= $value[1] ?>" data-idevent="<?= $value[2] ?>">
+					<?= $value[0]  ?>
+				</button>
+
+				<?php
+		}
+	}

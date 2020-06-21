@@ -1,0 +1,10 @@
+<article id="liste_de_sliders">
+
+	<?php foreach ($resSlider as $key => $value): ?>
+		
+			<button class="showSlider" data-slide="<?= $value['idSlider'] ?>" > 
+				<?= $value['nomSlider'] ?>
+			</button>
+	<?php endforeach ?>
+
+</article>

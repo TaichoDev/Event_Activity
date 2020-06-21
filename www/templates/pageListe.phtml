@@ -1,0 +1,60 @@
+	
+
+	<section class="contenaire-evenements commun-contenaire">
+		<section class="listes-evenements-1 listes-evenements">
+			<h2><?= $h2 ?></h2>
+
+			<?php		
+
+				if (empty($resultats)) {
+					
+					echo "Il n'y a pas de résultats";
+				}else{
+			
+					foreach ($resultats as $key => $value) {
+						# code...
+							
+							?>
+						<a href="index.php?page=evenement&num=<?= $value['idEvent'] ?>">
+							<article>
+								<figure>
+									<img src="<?= PHOTO_SITE.$value['urlPhoto'] ?>" alt="<?= $value['nomPhoto'] ?>">
+								</figure>
+								<div class="information-evenement">
+									<p>
+									<?= $value['nomCategorie'] ?>
+								</p>
+								<p>
+									<?= $value['nomSSCateg'] ?>
+								</p>
+								<p>
+									<?= $value['nomEvent'] ?>
+								</p>
+									<p>
+										<i class="fas fa-plus-circle"></i>
+									</p>
+								</div>
+							</article>
+						</a>
+							<?php
+						
+						}
+					}
+				
+			?>
+		</section>
+		<section class="block-pagination">             
+               <?php
+			   	
+
+			   		$pagecours = pathinfo($_SERVER['REQUEST_URI']);
+					$pageencours = $pagecours["basename"];
+					$_SESSION['retour'] = $pageencours;              	
+                    echo paginate("index.php?page=toutvoir&type=".$texte,"&nb=",$resultats['nombreDePages'],$resultats['pageActuelle'],2);                                                     
+                  
+                ?>
+               
+            </section>
+	</section>
+
+	
